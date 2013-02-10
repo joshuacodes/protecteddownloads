@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension id="protecteddownloads" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Protected Downloads</name>
+	<description>Restricts file download access to unique URLs and keys based on expiration date or number of downloads.</description>
+	<repo type="github">https://github.com/joshuacodes/protecteddownloads</repo>
+	<types>
+		<type>Events</type>
+	</types>
+	<authors>
+		<author>
+			<name github="joshuacodes" symphony="joshuacodes">JoshuaCodes</name>
+			<email>joshua@joshuacodes.com</email>
+			<website>www.joshuacodes.com/protecteddownloads</website>
+		</author>
+	</authors>
+	<releases>
+		<release version="0.1" date="2013-02-01" min="2.3" max="2.3.1" />
+	</releases>
+</extension>
