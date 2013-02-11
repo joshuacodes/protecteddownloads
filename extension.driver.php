@@ -131,13 +131,13 @@
 				PRIMARY KEY (accesskey)
 			);");
 			
-/*			Symphony::Database()->query("CREATE TABLE IF NOT EXISTS `tbl_downloadfiles` (
+			Symphony::Database()->query("CREATE TABLE IF NOT EXISTS `tbl_downloadfiles` (
 				`id` INT UNSIGNED NOT NULL default '',
 				`filename` varchar(255) NOT NULL default '',
 				`extension` varchar(255) NOT NULL default '',
 				`path` varchar(255) NOT NULL default '',
 				PRIMARY KEY (id)
-			);");*/
+			);");
 		}
 
 		/**
@@ -147,7 +147,7 @@
 		public function uninstall() {
 			// Drop Protected Download Table:
 			Symphony::Database()->query("DROP TABLE `tbl_downloadkeys`");
-/*			Symphony::Database()->query("DROP TABLE `tbl_downloadfiles`");*/
+			Symphony::Database()->query("DROP TABLE `tbl_downloadfiles`");
 		}
 	}
 ?>
