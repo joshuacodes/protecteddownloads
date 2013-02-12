@@ -11,9 +11,9 @@
 	require_once(CORE . '/class.administration.php');
 	require_once(EXTENSIONS . '/protecteddownloads/lib/class.downloadkeymanager.php');
 
-	define_safe('BASE_URL', URL . '/symphony/extension/protecteddownloads/addfiles');
+	define_safe('BASE_URL', URL . '/symphony/extension/protecteddownloads/managefiles');
 
-	Class contentExtensionProtectedDownloadsAddFiles extends AdministrationPage {
+	Class contentExtensionProtectedDownloadsManageFiles extends AdministrationPage {
 
 		public $_DownloadKey;
 		public $_errors = array();

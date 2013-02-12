@@ -13,6 +13,11 @@
 					'index' => '300',
 					'children' => array(
 						array(
+							'name'	=> 'Manage Files',
+							'link'	=> '/managefiles/',
+							'limit'	=> 'developer'
+						),
+						array(
 							'name'	=> 'Manage Keys',
 							'link'	=> '/managekeys/',
 							'limit'	=> 'developer'
@@ -132,7 +137,7 @@
 			);");
 			
 			Symphony::Database()->query("CREATE TABLE IF NOT EXISTS `tbl_downloadfiles` (
-				`id` INT UNSIGNED NOT NULL default '',
+				`id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
 				`filename` varchar(255) NOT NULL default '',
 				`extension` varchar(255) NOT NULL default '',
 				`path` varchar(255) NOT NULL default '',
