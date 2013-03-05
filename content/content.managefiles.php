@@ -9,41 +9,41 @@
 	require_once(TOOLKIT . '/class.administrationpage.php');
 	require_once(CONTENT . '/class.sortable.php');
 	require_once(CORE . '/class.administration.php');
-	require_once(EXTENSIONS . '/protecteddownloads/lib/class.downloadkeymanager.php');
+	require_once(EXTENSIONS . '/protecteddownloads/lib/class.downloadfilemanager.php');
 
 	define_safe('BASE_URL', URL . '/symphony/extension/protecteddownloads/managefiles');
 
 	Class contentExtensionProtectedDownloadsManageFiles extends AdministrationPage {
 
-		public $_DownloadKey;
+		public $_DownloadFile;
 		public $_errors = array();
 
 		public function sort(&$sort, &$order, $params) {
 			if(is_null($sort)) $sort = 'issuedstamp';
 
-			return DownloadKeyManager::fetch($sort, $order);
+			return DownloadFileManager::fetch($sort, $order);
 		}
 
 		public function __viewIndex() {
 			$this->setPageType('table');
 			$this->setTitle(__('%1$s &ndash; %2$s', array(__('Protected Downloads'), __('Symphony'))));
 
-			$this->appendSubheading(__('View Keys'), Widget::Anchor(
-				__('New Key'),
+			$this->appendSubheading(__('View Files'), Widget::Anchor(
+				__('New File'),
 				Administration::instance()->getCurrentPageURL().'new/',
-				__('Create a new key'),
+				__('Upload a new file'),
 				'create button',
 				NULL,
 				array('accesskey' => 'c')
 			));
 
-			Sortable::initialize($this, $downloadkeys, $sort, $order);
+			Sortable::initialize($this, $downloadfiles, $sort, $order);
 
 			$columns = array(
 				array(
-					'label' => __('Date Issued'),
+					'label' => __('Filename'),
 					'sortable' => true,
-					'handle' => 'issuedstamp'
+					'handle' => 'filename'
 				),
 				array(
 					'label' => __('Name'),

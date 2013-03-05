@@ -143,6 +143,11 @@
 				`path` varchar(255) NOT NULL default '',
 				PRIMARY KEY (id)
 			);");
+
+			if (!is_dir(WORKSPACE . '/protecteddownloads')) {
+				mkdir(WORKSPACE. '/protecteddownloads');
+			}
+
 		}
 
 		/**
