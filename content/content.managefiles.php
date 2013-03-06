@@ -212,6 +212,8 @@
 			$div = new XMLElement('div');
 			$div->setAttribute('class', 'two columns');
 
+			$label = FieldUpload::
+			
 			$label = Widget::Label(__('Name'), NULL, 'column');
 			$label->appendChild(Widget::Input('fields[name]', $downloadkey->get('name')));
 			$div->appendChild((isset($this->_errors['name']) ? Widget::Error($label, $this->_errors['name']) : $label));
