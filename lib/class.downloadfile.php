@@ -18,7 +18,7 @@
 
 	require_once(EXTENSIONS . '/protecteddownloads/lib/class.downloadkeymanager.php');
 
-	Class DownloadKey {
+	Class DownloadFile {
 
 		/**
 		 * An associative array of information relating to this DownloadKey where

@@ -19,7 +19,7 @@
 		public $_errors = array();
 
 		public function sort(&$sort, &$order, $params) {
-			if(is_null($sort)) $sort = 'issuedstamp';
+			if(is_null($sort)) $sort = 'filename';
 
 			return DownloadFileManager::fetch($sort, $order);
 		}
@@ -45,7 +45,7 @@
 					'sortable' => true,
 					'handle' => 'filename'
 				),
-				array(
+/*				array(
 					'label' => __('Name'),
 					'sortable' => true,
 					'handle' => 'name'
@@ -69,7 +69,7 @@
 					'label' => __('Remaining Downloads'),
 					'sortable' => true,
 					'handle' => 'remainingdownloads'
-				),
+				),*/
 			);
 
 			$aTableHead = Sortable::buildTableHeaders(
@@ -81,21 +81,21 @@
 
 			$aTableBody = array();
 
-			if(!is_array($downloadkeys) || empty($downloadkeys)) {
+			if(!is_array($downloadfiles) || empty($downloadfiles)) {
 				$aTableBody = array(Widget::TableRow(array(Widget::TableData(__('None found.'), 'inactive', NULL, count($aTableHead))),	'odd'));
 			} else {
-				foreach($downloadkeys as $a) {
+				foreach($downloadfiles as $a) {
 					// Setup each cell
-					$td1 = Widget::TableData(DateTimeObj::format($a->get('issuedstamp'), __SYM_DATETIME_FORMAT__));
+/*					$td1 = Widget::TableData(DateTimeObj::format($a->get('issuedstamp'), __SYM_DATETIME_FORMAT__));
 					$td2 = Widget::TableData(Widget::Anchor($a->get('name'), 'mailto:'.$a->get('email'), __('Email this person.')));
 					$td3 = Widget::TableData(Widget::Anchor($a->get('accesskey'), Administration::instance()->getCurrentPageURL() . 'edit/' . $a->get('accesskey') . '/', __('View details and edit this key.')));
-					$td4 = Widget::TableData($a->get('file'));
-					$td5 = Widget::TableData($a->getRemainingDays());
+*/					$td4 = Widget::TableData($a->get('file'));
+/*					$td5 = Widget::TableData($a->getRemainingDays());
 					$td6 = Widget::TableData($a->getRemainingDownloads());
 
 					$td3->appendChild(Widget::Input('items['.$a->get('accesskey').']', NULL, 'checkbox'));
-
-					$aTableBody[] = Widget::TableRow(array($td1, $td2, $td3, $td4, $td5, $td6));
+*/
+					$aTableBody[] = Widget::TableRow(array(/*$td1, $td2, $td3, */$td4/*, $td5, $td6*/));
 				}
 			}
 

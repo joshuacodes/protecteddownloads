@@ -8,9 +8,9 @@
 	 * implements CRUD methods to add, fetch, edit, and delete table rows. 
 	 */
 
-	require_once(EXTENSIONS . '/protecteddownloads/lib/class.downloadkey.php');
+	require_once(EXTENSIONS . '/protecteddownloads/lib/class.downloadfile.php');
 
-	Class DownloadKeyManager {
+	Class DownloadFileManager {
 
 		/**
 		 * An array of all the objects that the Manager is responsible for.
@@ -82,11 +82,11 @@
 		 * @return array
 		 * An array of Author objects. If no Authors are found, an empty array is returned.
 		 */
-		public static function fetch($sortby = 'issuedstamp', $sortdirection = 'ASC', $limit = null, $start = null, $where = null, $joins = null) {
+		public static function fetch($sortby = 'filename', $sortdirection = 'ASC', $limit = null, $start = null, $where = null, $joins = null) {
 
 			$records = Symphony::Database()->fetch(sprintf("
 				SELECT a.*
-				FROM `tbl_downloadkeys` AS `a`
+				FROM `tbl_downloadfiles` AS `a`
 				%s
 				WHERE %s
 				ORDER BY %s %s
